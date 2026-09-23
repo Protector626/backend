@@ -1,7 +1,7 @@
-import pool from '../config/db';
+import pool from '../config/db.js';
 
-export const fectchAllBooks = async () => {
-
+export const fetchAllBooks = async () => {
     const [rows] = await pool.query("SELECT * FROM tblbook");
     return rows;
 }
+

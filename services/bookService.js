@@ -1,7 +1,6 @@
-import * as pool from '../models/bookModel.js';
+import * as bookModel from '../models/bookModel.js';
 
-export const fectchAllBooks = async () => {
-
-    const books = await bookModel.fectchAllBooks();
+export const fetchAllBooks = async () => {
+    const books = await bookModel.fetchAllBooks();
     return books;
 }

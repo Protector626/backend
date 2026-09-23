@@ -1,6 +1,0 @@
-import * as bookService from '../services/bookService.js';
-
-export const fectchAllBooks = async (req, res) => {
-    const books = await bookService.fectchAllBooks();
-    res.status(200).json(books);
-}
