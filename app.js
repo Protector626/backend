@@ -1,13 +1,16 @@
 import express from "express";
 import bookRoutes from "./routes/bookRoutes.js";
+import studentRoutes from "./routes/studentRoutes.js";
 
 
 //Create Express App    
 const app = express();
 
+app.use(express.json()); //Middleware to parse JSON request body sadas
 
-/* Rouytes Implementation */
-app.use('/books', bookRoutes);
+app.use('/book', bookRoutes);
+
+app.use('/student', studentRoutes);
 
 try {
     const port = 3000; //Define port Variable
