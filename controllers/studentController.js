@@ -4,11 +4,11 @@ export const fetchAllStudents = async (request, response) => {
     const student = await studentService.fetchAllStudents();
     response.status(200).json(student);
 }
-
+// Create a new student in the database
 export const createStudent = async (req, res) =>{
     const {name, srcode, program} = req.body
     const student = {name, srcode, program};
-
+// Call the studentService to insert the new student
     try{
         const studentId = await studentService.insert(student);
         res.status(200).json({
@@ -20,5 +20,24 @@ export const createStudent = async (req, res) =>{
         res.status(500).json({
             error: "Internal Server Error"
         })
+    }
+}
+
+export const editStudent = async (req, res) => {
+    const {name, srcode, program} = req.body;
+    const { id } = req.params;
+    const student = {id: parseInt(id), name, srcode, program};
+
+    try {
+        const updateStudent = await studentService.updateStudent(student);
+        res.status(200).json({
+            success: true,
+            message: updateStudent
+        });
+    } catch (e) {
+        console.log(e);
+        res.status(500).json({
+            error: "Internal Server Error"
+        });
     }
 }

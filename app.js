@@ -8,10 +8,12 @@ const app = express();
 
 app.use(express.json()); //Middleware to parse JSON request body sadas
 
+// Define routes for book and student operations
 app.use('/book', bookRoutes);
 
 app.use('/student', studentRoutes);
 
+// Start the server and listen on port 3000
 try {
     const port = 3000; //Define port Variable
     app.listen(port, () => {
