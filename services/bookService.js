@@ -18,4 +18,9 @@ export const updateBook = async (book) => {
     return updateBook;
 }
 
+// Remove an existing book in the database
+export const deleteBook = async (id) => {
+    const deleteBook = await bookModel.remove(id);
+    return deleteBook;
+}
 
