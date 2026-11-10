@@ -28,6 +28,13 @@ export const insert = async (student) => {
         throw new ValidationError(404, "Name, SR Code, and Program are required!");
     }
 
+    const srCodePattern = /^\d{2}-\d{5}$/;// Regular expression pattern for SR Code format (e.g., 20-12345)
+
+
+    if (!srCodePattern.test(student.srcode)) {
+        throw new ValidationError(400, "Invalid SR Code format!");
+    }
+
     const existing = await doesStudentExist(student);
 
     if (existing){
@@ -41,6 +48,14 @@ export const insert = async (student) => {
 export const updateStudent = async (student) => {
     if (!student.name || !student.srcode || !student.program) {
         throw new ValidationError(404, "Name, SR Code, and Program are required!");
+    }
+
+
+    const srCodePattern = /^\d{2}-\d{5}$/;// Regular expression pattern for SR Code format (e.g., 20-12345)
+
+
+    if (!srCodePattern.test(student.srcode)) {
+        throw new ValidationError(400, "Invalid SR Code format!");
     }
 
     const existing = await doesStudentExist(student);
