@@ -1,6 +1,7 @@
 import express from "express";
 import bookRoutes from "./routes/bookRoutes.js";
 import studentRoutes from "./routes/studentRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
 
 
 //Create Express App    
@@ -10,8 +11,8 @@ app.use(express.json()); //Middleware to parse JSON request body sadas
 
 // Define routes for book and student operations
 app.use('/book', bookRoutes);
-
 app.use('/student', studentRoutes);
+app.use('/user', userRoutes);
 
 // Start the server and listen on port 3000
 try {

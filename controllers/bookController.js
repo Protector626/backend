@@ -6,7 +6,7 @@ export const fetchAllBooks = async (request, response) => {
 }
 // Create a new book in the database
 export const createBook = async (req, res) =>{
-    const {name, author} = req.body
+    const {name, author} = req.body;
     const book = {name, author};
 
 // Call the bookService to insert the new book

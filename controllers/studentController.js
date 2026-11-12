@@ -6,7 +6,7 @@ export const fetchAllStudents = async (request, response) => {
 }
 // Create a new student in the database
 export const createStudent = async (req, res) =>{
-    const {name, srcode, program} = req.body
+    const {name, srcode, program} = req.body;
     const student = {name, srcode, program};
 // Call the studentService to insert the new student
     try{
